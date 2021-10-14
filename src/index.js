@@ -5,19 +5,18 @@ import reportWebVitals from './reportWebVitals';
 // Insert Component imports here
 //import App from './components/App';
 import Container from './components/Container';
-import PyIDE from './components/pyodide'
+//import PyIDE from './components/pyodide'
+import Pyodide from './components/PyodideJenna';
 
 // Insert CSS imports here
 import './index.css';
 
+const pythonString = 'print()';
+
 ReactDOM.render(
   <React.StrictMode>
     <Container />
-    <PyIDE
-      id="1"
-      pythonCode="print(2*3)"
-      loadingMessage = 'loading...'
-      evaluatingMessage = 'evaluating...'/>
+    <Pyodide pythonCode={pythonString} />
   </React.StrictMode>,
   document.getElementById('root')
 );
