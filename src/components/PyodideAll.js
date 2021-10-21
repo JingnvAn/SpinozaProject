@@ -44,9 +44,20 @@ export default function Pyodide({
       <Helmet>
         <script src={'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js'} />
       </Helmet>
+      <Helmet>
+        <script src="testpy2.js"></script>
+      </Helmet>
       <div>
         Pyodide Output: {isPyodideLoading ? loadingMessage :
         pyodideOutput}
+        <button onClick={() => {
+          console.log("clicked the button")
+          console.log(`runitall=${window.runitall}`)
+          window.runitall()}}>load the run functions</button>
+        <button onClick={() => {
+          console.log('clicked the run run run button')
+          window.evaluatePython()
+          }}>Run run run</button>
       </div>
     </>
   )

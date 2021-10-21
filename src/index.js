@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 //import App from './components/App';
 import Container from './components/Container';
 //import PyIDE from './components/pyodide'
-import Pyodide from './components/PyodideJenna';
+import Pyodide from './components/PyodideAll';
 
 // Insert CSS imports here
 import './index.css';
