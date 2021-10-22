@@ -27,13 +27,15 @@ function runitall() {
       let pyodide = await pyodideReadyPromise;
       window.pyodide = pyodide
       try {
-        console.dir(output)
-        console.dir(code)
-        let output0 = pyodide.runPython(code.value);
-        console.log('++++ '+output0)
-        console.dir(output)
-        console.dir(code)
-        addToOutput(output0);
+        // console.dir(output)
+        // console.dir(code)
+
+        let result = pyodide.runPython(code.value); // THIS IS COMING BACK UNDEFINED, BUT PRINTS CORRECT OUTPUT IN CONSOLE
+        console.log("result: ", result)
+        // console.log('++++ '+output0)
+        // console.dir(output)
+        // console.dir(code)
+        addToOutput(result);
       } catch (err) {
         addToOutput(err);
       }
@@ -41,4 +43,4 @@ function runitall() {
     window.evaluatePython = evaluatePython
   }
 window.runitall = runitall
-console.log("loaded runitall")  
+console.log("loaded runitall")

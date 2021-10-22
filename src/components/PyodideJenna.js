@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, useLayoutEffect } from 'react';
-import { Helmet } from "react-helmet";
+import { useEffect, useRef, useState, } from 'react';
 
 const globalThis = window;
 
@@ -28,14 +27,9 @@ export default function Pyodide({ pythonCode,
 
   return (
     <>
-
       <div>
         Pyodide Output: {isPyodideLoading ? loadingMessage :
         pyodideOutput}
-        <button onClick={() => {
-          console.log('clicked the run run run button')
-          window.evaluatePython()
-          }}>Run run run</button>
       </div>
     </>
   )

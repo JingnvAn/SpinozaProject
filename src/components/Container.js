@@ -1,24 +1,29 @@
+import { useState } from 'react';
 import '../css/Container.css';
 
-function Container() {
+export default function Container() {
+  const [input, setInput] = useState(`print('Hello Jenna!')`);
+
   return (
     <div className="Container">
       <h1>Spinoza</h1>
       <br />
 
       <textarea id="1" name="1" rows="4" cols="50"
-        value="This is the first textarea in the Container component."/>
+        placeholder={input}
+        onChange={((e) => {
+          console.log(e.target.value)
+          setInput(e.target.value)
+        })} />
 
       <textarea id="2" name="2" rows="4" cols="50"
-        value="This is the second textarea in the Container component."/>
+        placeholder="Output goes here" />
 
       <button onClick={() => {
         console.log('clicked the run button')
-        window.code.value = "print('Hello World')"
+        window.code.value = input
         window.evaluatePython()
       }}>Run</button>
     </div>
   );
 }
-
-export default Container;
