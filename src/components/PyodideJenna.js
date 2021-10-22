@@ -14,6 +14,7 @@ export default function Pyodide({ pythonCode,
   const [componentMounted, setComponentMounted] = useState(false);
   const [numRenders, setNumRenders] = useState(0);
 
+  // Note: this is not a super efficient solution. It works, but definitely needs optimizing.
   useEffect(async () => {
     console.log("in useEffect")
     try {
