@@ -13,6 +13,7 @@ function runitall() {
     }
 
     output.value = "Initializing...\n";
+    let paragraph = document.getElementById("p");
     // init Pyodide
     async function main() {
       let pyodide = await loadPyodide({
@@ -27,11 +28,36 @@ function runitall() {
       let pyodide = await pyodideReadyPromise;
       window.pyodide = pyodide
       try {
+        pyodide.runPython(`
+            import sys
+            import io
+            sys.stdout = io.StringIO()
+        `);
+
         // console.dir(output)
         // console.dir(code)
 
-        let result = pyodide.runPython(code.value); // THIS IS COMING BACK UNDEFINED, BUT PRINTS CORRECT OUTPUT IN CONSOLE
+        // This only returns a value if the result of the python expression returns a value
+        // For example, if we are trying to print("hello world") the result will be
+        // undefined but the correct output will be printed in the console.
+        // Solution: set up a method for capturing pyodide's output stream when
+        // result of python expression is undefined
+        let result = pyodide.runPython(code.value);
         console.log("result: ", result)
+
+        if (!result) {
+          var stdout = pyodide.runPython("sys.stdout.getvalue()")
+          console.log("stdout: ", stdout)
+          var div = document.createElement('div');
+          div.innerText = stdout;
+          document.body.appendChild(div);
+        } else {
+          var div = document.createElement('div');
+          div.innerText = result
+          document.body.appendChild(div)
+        }
+
+
         // console.log('++++ '+output0)
         // console.dir(output)
         // console.dir(code)
