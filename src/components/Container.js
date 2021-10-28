@@ -9,6 +9,11 @@ export default function Container() {
       <h1>Spinoza</h1>
       <br />
 
+
+
+
+      
+
       <textarea id="1" name="1" rows="4" cols="50"
         placeholder={input}
         onChange={((e) => {
