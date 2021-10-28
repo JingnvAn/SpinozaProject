@@ -4,13 +4,13 @@ import reportWebVitals from './reportWebVitals';
 import {Helmet} from "react-helmet";
 
 // Insert Component imports here
-// import App from './components/App';
-// import PyIDE from './components/pyodide'
-// import Pyodide from './components/PyodideAll';
+import App from './components/App';
+import PyIDE from './components/pyodide'
+import Pyodide from './components/PyodideAll';
 
 // Note: imports changed based on Jenna's tests :)
 import Container from './components/Container';
-import Pyodide from './components/PyodideJenna';
+// import Pyodide from './components/PyodideJenna';
 
 // Insert CSS imports here
 import './index.css';

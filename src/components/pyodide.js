@@ -1,6 +1,6 @@
 import {createContext,  useContext, useEffect, useState } from 'react'
 import Head from '../containers/head'
-//import { PyodideContext } from '../containers/pyodide-provider'
+// import { PyodideContext } from '../containers/pyodide-provider'
 const PyodideContext = createContext()
 export default function Pyodide({
   id,
