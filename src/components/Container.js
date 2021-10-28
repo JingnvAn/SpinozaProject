@@ -12,16 +12,17 @@ export default function Container() {
       <textarea id="1" name="1" rows="4" cols="50"
         placeholder={input}
         onChange={((e) => {
-          console.log(e.target.value)
+          console.log('set input: ', e.target.value)
           setInput(e.target.value)
         })} />
 
       <textarea id="2" name="2" rows="4" cols="50"
-        placeholder="Output goes here" />
+        placeholder="Output goes here" 
+        />
 
       <button onClick={() => {
         console.log('clicked the run button')
-        window.code.value = input
+        window.code.value = input || ''
         window.evaluatePython()
       }}>Run</button>
     </div>

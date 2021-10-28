@@ -26,7 +26,7 @@ export default function Pyodide({
   return (
     <>
       <Head>
-        <script src={`${indexURL}pyodide.js`} />
+        <script src={`${indexURL}Pyodide.js`} />
       </Head>
       <div id={id}>
         Pyodide Output: not working yet
