@@ -15,7 +15,7 @@ export default function Container() {
       <textarea id="1" name="1" rows="4" cols="50"
         placeholder={input}
         onChange={((e) => {
-          console.log(e.target.value)
+          console.log('set input: ', e.target.value)
           setInput(e.target.value)
         })} />
 

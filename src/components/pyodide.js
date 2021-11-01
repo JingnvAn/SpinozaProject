@@ -1,6 +1,6 @@
 import {createContext,  useContext, useEffect, useState } from 'react'
 import Head from '../containers/head'
-//import { PyodideContext } from '../containers/pyodide-provider'
+// import { PyodideContext } from '../containers/pyodide-provider'
 const PyodideContext = createContext()
 export default function Pyodide({
   id,
@@ -26,7 +26,7 @@ export default function Pyodide({
   return (
     <>
       <Head>
-        <script src={`${indexURL}pyodide.js`} />
+        <script src={`${indexURL}Pyodide.js`} />
       </Head>
       <div id={id}>
         Pyodide Output: not working yet
