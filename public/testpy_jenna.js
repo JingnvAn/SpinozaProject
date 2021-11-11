@@ -56,19 +56,20 @@ const runitall = () => {
       // result of python expression is undefined
       reset(window.output);
       reset(window.stdout);
-      
+      console.log(code.value)
       let result = pyodide.runPython(code.value);
+      let stdout = pyodide.runPython("sys.stdout.getvalue()")
       console.log("result: ", result);
+      console.log("stdout: ",stdout)
 
       // If expression evaluates to a certain result, we update output, otherwise update stdout
-      if (!result) {
-        var stdout = pyodide.runPython("sys.stdout.getvalue()")
+      if (stdout) {
         var div = document.createElement('div');
         div.innerText = stdout;
         document.body.appendChild(div);
         addToStdOut(stdout)
-        console.log(window.stdout)
-      } else {
+      } 
+      if (result){
         var div = document.createElement('div');
         div.innerText = result
         document.body.appendChild(div)

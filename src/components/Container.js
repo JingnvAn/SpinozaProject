@@ -28,8 +28,6 @@ export default function Container() {
       <button onClick={async() => {
         console.log('clicked the run button')
         window.code.value = input
-        reset(window.output)
-        reset(window.stdout)
         await window.evaluatePython()
         document.getElementById('2').value = window.output.value
         document.getElementById('3').value = window.stdout.value
