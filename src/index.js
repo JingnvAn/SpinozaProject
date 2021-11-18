@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import reportWebVitals from './reportWebVitals';
 import {Helmet} from "react-helmet";
 
@@ -11,10 +12,12 @@ import {Helmet} from "react-helmet";
 // Note: imports changed based on Jenna's tests :)
 import Container from './components/Container';
 import Pyodide from './components/PyodideJenna';
-
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom"
 // Insert CSS imports here
 import './index.css';
-
+import Login from './components/Authentication/Login';
+import Register from './components/Authentication/Register';
+import App from './components/App';
 const pythonString = 'print()';
 
 ReactDOM.render(
@@ -23,8 +26,14 @@ ReactDOM.render(
       <script src={'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js'} />
       <script src="testpy_jenna.js"></script>
     </Helmet>
-    <Container />
-    <Pyodide pythonCode={pythonString} />
+    <Router>
+      <Switch>
+        <Route path="/" component={Login}></Route>
+        <Route path="/pyodide" component={Container}/>
+      </Switch>
+    </Router>
+    <Container/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

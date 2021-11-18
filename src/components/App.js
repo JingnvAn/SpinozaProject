@@ -1,25 +1,19 @@
 import logo from '../logo.svg';
 import '../css/App.css';
+import Login from './Authentication/Login';
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom"
+import Pyodide from './PyodideJenna';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          This is some test text.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* <Switch>
+        <Route path="/login">
+        </Route>
+        <Route exact path="/">
+        </Route>
+      </Switch> */}
+    </Router>
   );
 }
 
