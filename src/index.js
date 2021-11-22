@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {Helmet} from "react-helmet";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 // Insert Component imports here
 // import App from './components/App';
 // import PyIDE from './components/pyodide'
@@ -14,6 +14,7 @@ import Pyodide from './components/PyodideJenna';
 
 // Insert CSS imports here
 import './index.css';
+import Login from './components/Login';
 
 const pythonString = 'print()';
 
@@ -23,8 +24,17 @@ ReactDOM.render(
       <script src={'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js'} />
       <script src="testpy_jenna.js"></script>
     </Helmet>
-    <Container />
-    <Pyodide pythonCode={pythonString} />
+    <Router>
+      <Switch>
+        <Route exact path = '/'>
+          <Login></Login>
+        </Route>
+        <Route path='/Container'>
+          <Container/>
+          <Pyodide pythonCode={pythonString} />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
