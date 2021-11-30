@@ -15,11 +15,11 @@ export default function Pyodide({ pythonCode,
 
   // Note: this is not a super efficient solution. It works, but definitely needs optimizing.
   useEffect(async () => {
-    console.log("in useEffect")
+    console.log("in useEffect in PyodideJenna")
     try {
       await window.runitall()
     } catch(e) {
-      console.log("Helmet has not executed scripts yet. Incrementing numRenders.")
+      //console.log("Helmet has not executed scripts yet. Incrementing numRenders.")
       setNumRenders(numRenders + 1)
     }
   }, [numRenders])

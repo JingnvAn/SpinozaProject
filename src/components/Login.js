@@ -19,6 +19,7 @@ const signInWithEmailAndPassword = async (email, password) => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       history.push('/Container')
+      window.userEmail = email
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -52,7 +53,7 @@ const signInWithEmailAndPassword = async (email, password) => {
         {/* <div>
           <Link to="/reset">Forgot Password</Link>
         </div> */}
-        
+
       </div>
     </div>
   );

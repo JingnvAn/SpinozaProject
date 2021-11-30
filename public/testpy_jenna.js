@@ -68,7 +68,7 @@ const runitall = () => {
         div.innerText = stdout;
         document.body.appendChild(div);
         addToStdOut(stdout)
-      } 
+      }
       if (result){
         var div = document.createElement('div');
         div.innerText = result
