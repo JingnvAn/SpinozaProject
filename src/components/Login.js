@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { auth } from "./Firebase";
+import '../css/Login.css';
+import loginImg from "../login.jpeg";
 //import { useAuthState } from "react-firebase-hooks/auth";
 
 function Login() {
@@ -29,30 +31,48 @@ const signInWithEmailAndPassword = async (email, password) => {
   return (
     <div className="login">
       <div className="login__container">
-        <input
-          type="text"
-          className="login__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className="login__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
+        
+        <div className="image">
+          <img src={loginImg} />
+        </div>
+        
+        <div className="form">
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              className="login__textBox"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail Address"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="login__textBox"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        
+        {/* <div>
+          <Link to="/reset">Forgot Password</Link>
+        </div> */}
+        
+      </div>
+      <div className="footer">
         <button
           className="login__btn"
           onClick={() => signInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
-        {/* <div>
-          <Link to="/reset">Forgot Password</Link>
-        </div> */}
-        
       </div>
     </div>
   );
