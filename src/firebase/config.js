@@ -14,7 +14,7 @@ const actionCodeSettings = {
     installApp: true,
     minimumVersion: '12'
   },
-  dynamicLinkDomain: 'example.page.link'
+  dynamicLinkDomain: 'spinozabrandeis.page.link'
 };
 
 const firebaseConfig = {
