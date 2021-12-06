@@ -28,8 +28,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path = '/'>
-          {/* <Login></Login> */}
-          <EmailLinkLogin></EmailLinkLogin>
+          <Login></Login>
         </Route>
         <Route path='/Container'>
           <Container/>
