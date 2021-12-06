@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { auth } from "./Firebase";
+import { auth } from "../firebase/config";
 import '../css/Login.css';
 import loginImg from "../login.jpeg";
-//import { useAuthState } from "react-firebase-hooks/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const [user, loading, error] = useAuthState(auth);
-   const history = useHistory();
-//   useEffect(() => {
-//     if (loading) {
-//       // maybe trigger a loading screen
-//       return;
-//     }
-//     if (user) history.replace("/dashboard");
-//   }, [user, loading]);
+  const history = useHistory();
+
 const signInWithEmailAndPassword = async (email, password) => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
@@ -25,7 +17,7 @@ const signInWithEmailAndPassword = async (email, password) => {
       console.error(err);
       alert(err.message);
     }
-  };
+};
 
 
   return (
