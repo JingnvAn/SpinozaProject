@@ -15,6 +15,7 @@ import Pyodide from './components/PyodideJenna';
 // Insert CSS imports here
 import './index.css';
 import Login from './components/Login';
+import EmailLinkLogin from './components/EmailLinkLogin';
 
 const pythonString = 'print()';
 
@@ -27,7 +28,8 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path = '/'>
-          <Login></Login>
+          {/* <Login></Login> */}
+          <EmailLinkLogin></EmailLinkLogin>
         </Route>
         <Route path='/Container'>
           <Container/>
