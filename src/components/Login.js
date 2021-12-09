@@ -25,7 +25,7 @@ function Login() {
   const signInWithEmailAndPassword = async (email, password) => {
       try {
         await login(email, password);
-        history.push('/Container')
+        history.push('/ide')
       } catch (err) {
         console.error(err);
         alert(err.message);
