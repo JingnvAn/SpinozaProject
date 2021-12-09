@@ -16,6 +16,9 @@ import Pyodide from './components/PyodideJenna';
 import './index.css';
 import Login from './components/Login';
 import EmailLinkLogin from './components/EmailLinkLogin';
+import { AuthProvider } from './context/AuthContext';
+import Combination from './components/Combination';
+import PrivateRoute from './components/PrivateRoute';
 
 const pythonString = 'print()';
 
@@ -26,15 +29,15 @@ ReactDOM.render(
       <script src="testpy_jenna.js"></script>
     </Helmet>
     <Router>
+      <AuthProvider>
       <Switch>
         <Route exact path = '/'>
           <Login></Login>
         </Route>
-        <Route path='/Container'>
-          <Container/>
-          <Pyodide pythonCode={pythonString} />
-        </Route>
+        <PrivateRoute path='/ide' component={Combination}>
+        </PrivateRoute>
       </Switch>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

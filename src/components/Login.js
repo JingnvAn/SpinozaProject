@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Link} from "react";
 import { useHistory } from "react-router-dom";
+import { useAuth } from '../context/AuthContext'
 import { auth } from "../firebase/config";
 import '../css/Login.css';
 import loginImg from "../login.jpeg";
@@ -9,6 +10,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailLink, changeToEmailLink] = useState(false);
+  const { login } = useAuth();
 
   const history = useHistory();
 
@@ -22,7 +24,7 @@ function Login() {
 
   const signInWithEmailAndPassword = async (email, password) => {
       try {
-        await auth.signInWithEmailAndPassword(email, password);
+        await login(email, password);
         history.push('/Container')
       } catch (err) {
         console.error(err);
